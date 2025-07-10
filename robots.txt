@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://romanchobit.github.io/MalarfiXed/sitemap.xml
