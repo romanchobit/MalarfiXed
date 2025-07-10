@@ -1,166 +1,337 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MalarFix — Фарбування металу у Львові</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f7f7f7;
-      color: #333;
-      font-size: 20px;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(90deg, #003366, #006699);
-      color: white;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 1px;
-      flex: 1 1 60%;
-    }
-    header img {
-      max-width: 100px;
-      flex: 1 1 30%;
-    }
-    .blinker {
-      animation: blink 1.5s linear infinite;
-      font-weight: bold;
-      color: #ffcc00;
-      font-size: 1.3em;
-      width: 100%;
-      text-align: center;
-    }
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.2; }
-      100% { opacity: 1; }
-    }
-    .section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      padding: 60px 30px;
-      max-width: 1400px;
-      margin: auto;
-      gap: 40px;
-    }
-    .section-content {
-      flex: 1 1 55%;
-      min-width: 300px;
-    }
-    .section-images {
-      flex: 1 1 35%;
-      min-width: 250px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .section-images img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .section h2 {
-      color: #004080;
-      font-size: 2.2em;
-      margin-top: 0;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .contact {
-      background-color: #e6f0ff;
-      padding: 40px;
-      border-radius: 8px;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      font-size: 1.1em;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MalarFix — Фарбування металу у Львові</title>
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/219/219983.png" sizes="32x32" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+  body {
+    margin: 0; font-family: 'Rubik', sans-serif;
+    background: linear-gradient(to bottom, #eef2f3, #ffffff);
+    color: #222;
+    font-size: 18px; line-height: 1.7;
+  }
+  header {
+    background: radial-gradient(circle, #003366, #001f3f);
+    color: white;
+    padding: 60px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+  header h1 {
+    font-size: 3.5em; margin: 0; z-index: 2;
+  }
+  header img {
+    max-width: 120px; z-index: 2;
+  }
+  .pulse-icon {
+    position: absolute;
+    top: 0; right: 0;
+    opacity: 0.2;
+    width: 200px;
+    animation: pulse 4s infinite;
+  }
+  @keyframes pulse {
+    0% {transform: scale(1);opacity: 0.2;}
+    50% {transform: scale(1.1);opacity: 0.3;}
+    100% {transform: scale(1);opacity: 0.2;}
+  }
+  .blinker {
+    animation: blink 1.5s linear infinite;
+    font-weight: bold;
+    color: #ffcc00;
+    font-size: 1.4em;
+    text-align: center;
+    margin-top: 20px;
+  }
+  @keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0.3;}
+    100% {opacity: 1;}
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+  }
+  section {
+    margin-bottom: 70px;
+  }
+  h2 {
+    font-size: 2.8em;
+    color: #004080;
+    margin-bottom: 30px;
+  }
+
+  /* Дві колонки: текст зліва, акцент праворуч */
+  .two-columns {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  .two-columns .left {
+    flex: 1 1 55%;
+    min-width: 300px;
+  }
+  .two-columns .right {
+    flex: 1 1 40%;
+    min-width: 280px;
+    background: #cce7ff;
+    border-radius: 14px;
+    padding: 30px 25px;
+    box-shadow: 0 4px 15px rgba(0, 85, 170, 0.3);
+    color: #003366;
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-weight: 600;
+    user-select: none;
+  }
+
+  p {
+    margin-bottom: 18px;
+  }
+  ul {
+    padding-left: 20px;
+    margin-bottom: 18px;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Прайс-лист */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1em;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* Акція */
+  .promo {
+    background: #e6f7ff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+    max-width: 900px;
+    margin: 50px auto;
+    color: #004080;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Контакти */
+  .contact {
+    background: #d9ecff;
+    padding: 60px 40px;
+    border-radius: 12px;
+    margin-top: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .contact-buttons a {
+    padding: 14px 28px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .telegram-btn {
+    background: #0088cc;
+  }
+  .telegram-btn:hover {
+    background: #0077b3;
+    animation: pulse 1s infinite;
+  }
+  .viber-btn {
+    background: #7360f2;
+  }
+  .viber-btn:hover {
+    background: #5a4fbb;
+    animation: pulse 1s infinite;
+  }
+
+  footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 1.2em;
+    margin-top: 60px;
+  }
+
+</style>
 </head>
 <body>
-  <header>
+<header>
+  <div>
     <h1>MalarFix — Фарбування металу Львів</h1>
-    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="емблема фарбування">
-    <p class="blinker">Найкращі ціни тут!</p>
-  </header>
+    <p class="blinker">🔥 Найкращі ціни + виїзд до клієнта!</p>
+  </div>
+  <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="емблема фарбування" />
+  <img
+    class="pulse-icon"
+    src="https://cdn-icons-png.flaticon.com/512/584/584052.png"
+    alt="іконка фонова"
+  />
+</header>
 
-  <section class="section">
-    <div class="section-content">
-      <h2>Про нас</h2>
-      <p>Ми — молода компанія, яка активно розвивається на ринку фарбування металевих конструкцій у Львові та Львівській області. Наша мета — забезпечити якісний сервіс за розумною ціною. 
-      На сьогодні наші ціни залишаються доступними, оскільки ми лише починаємо і хочемо завоювати довіру клієнтів. Ми працюємо мобільно — приїжджаємо до вас з усім необхідним обладнанням, без потреби у складній логістиці або спеціальній доставці. Просто зателефонуйте — і ми зробимо все на місці, швидко та якісно.</p>
-    </div>
-    <div class="section-images">
-      <img src="https://images.unsplash.com/photo-1603117983782-c8e0ff40f3cc?auto=format&fit=crop&w=800&q=60" alt="фарбування воріт">
-      <img src="https://images.unsplash.com/photo-1596727141488-f0e6dfb017c3?auto=format&fit=crop&w=800&q=60" alt="фарба на металі">
-    </div>
-  </section>
+<main>
 
-  <section class="section">
-    <div class="section-content">
-      <h2>Наші послуги</h2>
+<section>
+  <h2>Про нас</h2>
+  <div class="two-columns">
+    <div class="left">
+      <p>
+        MalarFix — це команда професіоналів, яка не просто фарбує метал, а трансформує ваші конструкції, подовжуючи їх життя і створюючи новий імідж вашого майна.
+      </p>
+      <p>
+        Ми розуміємо, що фарбування — це не лише косметичний ремонт, а комплексний процес, що включає підготовку, захист і декоративне оздоблення. Тому підходимо до кожного замовлення з максимальною відповідальністю та турботою про довговічність результату.
+      </p>
+      <p>
+        Виїжджаючи до клієнта, ми привозимо все необхідне обладнання та якісні матеріали, щоб роботи були виконані швидко, акуратно та з дотриманням усіх технологій.
+      </p>
+      <p>
+        Наше завдання — зробити ваші металеві конструкції не лише красивими, але й надійними у використанні, захистити їх від корозії та впливу навколишнього середовища на довгі роки.
+      </p>
+    </div>
+    <div class="right" aria-label="Процес фарбування як цінність">
+      Це не просто оновлення паркану чи воріт — це інвестиція у збереження і покращення вашого майна.  
+      Кожен нанесений шар фарби — це захист від руйнування, це турбота про деталі, це можливість подарувати нове життя старим конструкціям.
+      <br/><br/>
+      Обираючи MalarFix, ви отримуєте не просто послугу, а надійного партнера, який цінує якість та довіру клієнтів понад усе.
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Наші послуги</h2>
+  <div class="two-columns">
+    <div class="left">
       <ul>
-        <li>Очищення металу від корозії (легкого ступеня)</li>
-        <li>Ґрунтування поверхні</li>
-        <li>Нанесення холодного цинку</li>
-        <li>Фарбування металу (фарбопультом)</li>
-        <li>Лакування металу</li>
+        <li><strong>Очищення металу</strong> від іржі, бруду та старих покриттів.</li>
+        <li><strong>Ґрунтування</strong> антикорозійним засобом для довговічності.</li>
+        <li><strong>Холодне цинкування</strong> — додатковий захист металу.</li>
+        <li><strong>Фарбування фарбопультом</strong> якісними фарбами різного типу.</li>
+        <li><strong>Захисне лакування</strong> для стійкості та краси покриття.</li>
+        <li><strong>Виїзне фарбування</strong> на об’єкті клієнта без демонтажу.</li>
       </ul>
+      <p>Ми працюємо з матеріалами преміум-класу, які гарантовано служать роками і зберігають колір та блиск.</p>
     </div>
-    <div class="section-images">
-      <img src="https://images.unsplash.com/photo-1598387857536-82f6bfa6d96f?auto=format&fit=crop&w=800&q=60" alt="підготовка металу">
+    <div class="right" aria-label="Важливість комплексного підходу">
+      Якість фарбування залежить не лише від фарби, а й від правильної підготовки та технології нанесення.  
+      Наша команда контролює кожен етап, щоб результат вас тішив не один сезон, а багато років.  
+      Це більше, ніж фарбування — це комплексний догляд за вашим металевим майном.
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="section-content">
-      <h2>Ціни</h2>
-      <p>Ціна залежить від типу конструкції, її стану, а також побажань клієнта. Якщо потрібно лише фарбування — це один обсяг робіт. Якщо потрібно попереднє очищення, цинкування, ґрунтування, лакування — це інші умови. Ми завжди індивідуально підходимо до кожного об'єкта.</p>
-      <p><strong>Середня ціна: від 150 грн/м²</strong></p>
-    </div>
-    <div class="section-images">
-      <img src="https://images.unsplash.com/photo-1578926402530-3125e8e42dfd?auto=format&fit=crop&w=800&q=60" alt="фарбування конструкції">
-    </div>
-  </section>
+<section>
+  <h2>Ціни та умови</h2>
+  <p>Наші ціни — прозорі і чесні, з урахуванням усіх потреб клієнта. Ознайомтесь з орієнтовним прайс-листом:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Послуга</th>
+        <th>Орієнтовна ціна</th>
+        <th>Коментар</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Очищення металу</td>
+        <td>від 50 грн/м²</td>
+        <td>Залежить від ступеня іржі, доступу до об'єкта</td>
+      </tr>
+      <tr>
+        <td>Ґрунтування</td>
+        <td>від 40 грн/м²</td>
+        <td>Антикорозійний ґрунт</td>
+      </tr>
+      <tr>
+        <td>Холодне цинкування</td>
+        <td>від 70 грн/м²</td>
+        <td>Зміцнення поверхні перед фарбуванням</td>
+      </tr>
+      <tr>
+        <td>Фарбування компресором</td>
+        <td>від 150 грн/м²</td>
+        <td>Залежить від типу фарби та кількості шарів</td>
+      </tr>
+      <tr>
+        <td>Лакування</td>
+        <td>від 50 грн/м²</td>
+        <td>Захист кольору та покращення естетики</td>
+      </tr>
+      <tr>
+        <td>Комплекс "під ключ"</td>
+        <td>від 250 грн/м²</td>
+        <td>Очищення + ґрунт + фарба + лак</td>
+      </tr>
+      <tr>
+        <td>Виїзд по Львову</td>
+        <td>Безкоштовно</td>
+        <td>У межах міста</td>
+      </tr>
+      <tr>
+        <td>Виїзд за межі</td>
+        <td>Договірна</td>
+        <td>Залежить від відстані</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-  <section class="section contact">
-    <div class="section-content">
-      <h2>Контакти</h2>
-      <p>Зв’язатися зі мною можна через:</p>
-      <ul>
-        <li><strong>Viber / Telegram:</strong> (номер буде додано пізніше)</li>
-        <li><strong>Локація:</strong> Львів і Львівська область</li>
-      </ul>
-    </div>
-  </section>
+<section class="promo" aria-label="Акція">
+  🎉 Кожен 10-й клієнт отримує знижку 50% на фарбування! Скористайтеся вигідною пропозицією і оновіть свої металеві конструкції з нами.
+</section>
 
-  <footer>
-    <p>&copy; 2025 MalarFix. Всі права захищено.</p>
-  </footer>
+<section class="contact">
+  <h2>Контакти</h2>
+  <p>
+    📍 Працюємо у Львові та області.<br />
+    📞 Зв’язок через Viber / Telegram.<br />
+    📱 Номер телефону: 068 348 86 24.
+  </p>
+  <p><em>Замовити фарбування просто — напишіть нам, і ми приїдемо у зручний для вас час!</em></p>
+
+  <div class="contact-buttons">
+    <a href="https://t.me/Malar_Fix" target="_blank" class="telegram-btn">Написати в Telegram</a>
+    <a href="viber://chat?number=%2B380683488624" class="viber-btn">Написати у Viber</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 MalarFix. Розробка сайту — з душею ❤️</p>
+</footer>
 </body>
 </html>
-
-
